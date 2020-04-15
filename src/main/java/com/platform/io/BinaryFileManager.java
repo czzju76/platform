@@ -4,39 +4,60 @@ import java.io.*;
 
 public class BinaryFileManager {
 
-    public void store(OutputStream outputStream, byte[] bytes) throws IOException {
+    public static void store(OutputStream outputStream, byte[] bytes) throws IOException {
 
         store0(new BufferedOutputStream(outputStream), bytes);
     }
 
-    public void store(FileOutputStream fileOutputStream, byte[] bytes) throws IOException {
+    /**
+     * save byte[] to binary file
+     * @param fileOutputStream: new FileOutputStream("test.data")
+     * @param bytes:byte array
+     * @throws IOException
+     */
+    public static void store(FileOutputStream fileOutputStream, byte[] bytes) throws IOException {
 
         store0(new BufferedOutputStream(fileOutputStream), bytes);
     }
 
-    private void store0(BufferedOutputStream bos, byte[] bytes) throws IOException {
-        bos.write(bytes);
-        bos.flush();
+    private static void store0(BufferedOutputStream bos, byte[] bytes) throws IOException {
+        try {
+            bos.write(bytes);
+            bos.flush();
+        }
+        finally {
+            bos.close();
+        }
     }
 
 
 
-    public byte[] load(InputStream inputStream) throws  IOException {
+    public static byte[] load(InputStream inputStream) throws  IOException {
 
         int size = inputStream.available();
         return load0(new BufferedInputStream(inputStream), size);
     }
 
-    public byte[] load(FileInputStream fileInputStream) throws  IOException {
+    /**
+     *
+     * @param fileInputStream:
+     * @return
+     * @throws IOException
+     */
+    public static byte[] load(FileInputStream fileInputStream) throws  IOException {
 
         int size = fileInputStream.available();
         return load0(new BufferedInputStream(fileInputStream), size);
     }
 
-    private byte[] load0(BufferedInputStream bis, int size) throws  IOException {
+    private static byte[] load0(BufferedInputStream bis, int size) throws  IOException {
         byte[] bytes = new byte[size];
-        if(bis.read(bytes, 0, size) != -1)
-            return bytes;
+        try {
+            if (bis.read(bytes, 0, size) != -1)
+                return bytes;
+        }finally {
+            bis.close();
+        }
         return null;
     }
 }

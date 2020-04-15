@@ -4,36 +4,54 @@ import java.io.*;
 
 public class TextFileManager {
 
-    public void store(Writer writer, String text) throws IOException {
+    private final static String LINESEPARATOR = "\r\n";
+
+    /**
+     * save string to text file.
+     * @param writer:new OutputStreamWriter(new FileOutputStream("test.txt"))
+     * @param text:"this is a test!"
+     * @throws IOException
+     */
+    public static void store(Writer writer, String text) throws IOException {
 
         store0(new BufferedWriter(writer), text);
     }
 
 
-    private void store0(BufferedWriter bw, String text) throws IOException {
-        bw.write(text);
-        bw.flush();
+    private static void store0(BufferedWriter bw, String text) throws IOException {
+        try {
+            bw.write(text);
+            bw.flush();
+        }finally {
+            bw.close();
+        }
+
     }
 
-    public String load(Reader reader) throws IOException {
-
+    /**
+     * read string from text file
+     * @param reader: new InputStreamWriter(new FileInputStream("test.txt"))
+     * @return string from text file
+     * @throws IOException
+     */
+    public static String load(Reader reader) throws IOException {
         return load0(new BufferedReader(reader));
     }
 
 
-    private String load0(BufferedReader br) throws IOException {
+    private static String load0(BufferedReader br) throws IOException {
         StringBuilder sb = new StringBuilder();
-        int limit =0;
-        int length;
-        while(true){
-            sb.append(br.readLine());
-            length = sb.length();
-            if(length == limit)
-                break;
-            limit = length;
-        }
+        try {
+            String line;
+            while ((line = br.readLine()) != null) {
+                sb.append(line);
+                sb.append(LINESEPARATOR);
+            }
 
-        return sb.toString();
+            return sb.toString();
+        }finally {
+            br.close();
+        }
     }
 
 }
