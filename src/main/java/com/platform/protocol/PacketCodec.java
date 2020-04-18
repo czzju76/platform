@@ -53,8 +53,8 @@ public class PacketCodec implements Codec {
         Serializer serializer = serializerMap.get(algorithm);
         // 4、命令名称，1字节
         byte command = byteBuf.readByte();
-        //Class<? extends Packet> packetType = packetMap.get(command);
         Class<? extends Packet> packetType = packetMap.get(command);
+//        Class packetType = packetMap.get(command);
         // 5、指令长度，4字节
         int length = byteBuf.readInt();
         // 6、指令数据
