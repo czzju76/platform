@@ -1,9 +1,9 @@
 package com.platform.data_structure.queue;
 
 public class LinkQueue<T> implements Queue<T> {
-    private Node<T> head;
-    private Node<T> tail;
-    private int size;
+    protected Node<T> head;
+    protected Node<T> tail;
+    protected int size;
 
     public LinkQueue(){
         this.head = new Node<T>(null, null);
@@ -53,8 +53,8 @@ public class LinkQueue<T> implements Queue<T> {
     }
 
     public static class Node<T> {
-        private T data;
-        private Node<T> next;
+        protected T data;
+        protected Node<T> next;
 
         public Node(T data, Node<T> next){
             this.data = data;
