@@ -11,7 +11,8 @@ import com.platform.data_structure.queue.CircleQueue;
 public class Joseph {
 
     public static void main(String[] args) {
-        resolution(10,3);
+        //resolution(10,3);
+        resolution(100,7);
     }
 
     public static void resolution(int n, int k){
@@ -19,15 +20,17 @@ public class Joseph {
             System.out.println("输入参数有误！");
             return;
         }
+        // 1、初始化数据
         CircleQueue<Integer> circleQueue = new CircleQueue<Integer>(1);
         for (int i = 0; i < n; i++) {
             circleQueue.put(i+1);
         }
-        circleQueue.setStep(k);
-        circleQueue.connect();
-        circleQueue.start();
+        // 2、运行游戏
+        circleQueue.setStep(k);  //设置步长
+        circleQueue.connect();   //单链表形成环链表
+        circleQueue.start();     //设置开始位置
         int num;
-        while(true){
+        while(true){             //循环选出人员
             if(circleQueue.size()==0)
                 break;
             num = circleQueue.moveAndTake();
