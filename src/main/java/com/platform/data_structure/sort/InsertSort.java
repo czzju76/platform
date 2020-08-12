@@ -13,6 +13,8 @@ public class InsertSort extends Sort {
                 if(arr[index-1]>arr[index]){
                     swap(arr, index-1, index);
                 }
+                else
+                    break;
                 index--;
             }
         }
