@@ -1,4 +1,4 @@
-package com.platform.data_structure.sort;
+package com.platform.data_structure.sort_old;
 
 public class SelectSort extends Sort{
 

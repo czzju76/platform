@@ -5,6 +5,7 @@ import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.CuratorFrameworkFactory;
 import org.apache.curator.framework.recipes.leader.LeaderLatch;
 import org.apache.curator.framework.recipes.leader.LeaderLatchListener;
+import org.apache.curator.framework.state.ConnectionStateListener;
 import org.apache.curator.retry.ExponentialBackoffRetry;
 import org.apache.curator.test.TestingServer;
 import org.apache.curator.utils.CloseableUtils;
@@ -20,6 +21,8 @@ public class LeaderLatchDemo  {
         List<CuratorFramework> clients = Lists.newArrayList();
         List<LeaderLatch> examples = Lists.newArrayList();
         TestingServer server=new TestingServer();
+
+
         try {
             for (int i = 0; i < CLIENT_QTY; i++) {
                 CuratorFramework client

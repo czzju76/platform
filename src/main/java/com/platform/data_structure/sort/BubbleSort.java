@@ -1,26 +1,36 @@
 package com.platform.data_structure.sort;
 
-public class BubbleSort extends Sort {
-    public int[] sort(int[] arr){
-        if(arr.length<2)
-            return arr;
+import java.util.Arrays;
 
-        int length = arr.length;
-        boolean flag = false;
-        for (int i = 0; i < length; i++) {
-            flag = false;
-            for (int j = 0; j < length - i - 1; j++) {
-                if(arr[j] > arr[j + 1]){
-                    swap(arr, j, j+1);
-                    flag = true;
+/**
+ * @Title: BubbleSort
+ * @Description:
+ * @Auther:Lyon Chen
+ * @Version: 1.0
+ * @create 2020/8/24 14:51
+ */
+public class BubbleSort extends Sort{
+
+    public static void sort(int[] arr) {
+        if (arr == null || arr.length < 2) {
+            return;
+        }
+        for (int e = arr.length - 1; e > 0; e--) {
+            for (int i = 0; i < e; i++) {
+                if (arr[i] > arr[i + 1]) {
+                    swap(arr, i, i + 1);
                 }
             }
-            if(!flag)
-                break;
-
         }
-        return arr;
     }
+
+//    public static void swap(int[] arr, int i, int j) {
+//        arr[i] = arr[i] ^ arr[j];
+//        arr[j] = arr[i] ^ arr[j];
+//        arr[i] = arr[i] ^ arr[j];
+//    }
+
+    // for test
 
 
 }

@@ -1,9 +1,5 @@
 package com.platform.demo.data_structure.sort;
 
-import com.platform.data_structure.sort.BubbleSort;
-import com.platform.data_structure.sort.InsertSort;
-import com.platform.data_structure.sort.SelectSort;
-
 public class SortDemo {
     public static void main(String[] args) {
         int[] arr = new int[8000];
@@ -33,13 +29,13 @@ public class SortDemo {
         System.out.println(count2);
         System.out.println(count3);
         //冒泡排序法
-        //BubbleSort sort = new BubbleSort();
+        //BubbleSort sort_old = new BubbleSort();
         //选择排序
-        //SelectSort sort = new SelectSort();
+        //SelectSort sort_old = new SelectSort();
 
         //插入排序
-/*        InsertSort sort = new InsertSort();
-        arr = sort.sort(arr);
+/*        InsertSort sort_old = new InsertSort();
+        arr = sort_old.sort_old(arr);
         display(arr);*/
     }
 
