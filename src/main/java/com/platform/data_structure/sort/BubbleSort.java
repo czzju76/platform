@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 /**
  * @Title: BubbleSort
- * @Description:
+ * @Description: 冒泡排序，时间复杂度O(N^2)，额外空间复杂度O(1)
  * @Auther:Lyon Chen
  * @Version: 1.0
  * @create 2020/8/24 14:51

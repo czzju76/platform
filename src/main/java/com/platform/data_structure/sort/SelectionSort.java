@@ -2,7 +2,7 @@ package com.platform.data_structure.sort;
 
 /**
  * @Title: SelectionSort
- * @Description: 选择排序
+ * @Description: 选择排序，时间复杂度O(N^2)，额外空间复杂度O(1)
  * @Auther:Lyon Chen
  * @Version: 1.0
  * @create 2020/8/24 16:53
