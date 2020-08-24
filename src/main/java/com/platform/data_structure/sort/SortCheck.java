@@ -26,10 +26,10 @@ public class SortCheck {
     /*
      * 支持测试类型
      * 1. BubbleSort  冒泡排序
-     * 2. SelectSort  选择排序
-     * 3. InsertSort  插入排序
+     * 2. SelectionSort  选择排序
+     * 3. InsertionSort  插入排序
      */
-    private static String type = "BubbleSort";
+    private static String type = "InsertionSort";
     public static void comparator(int[] arr) {
         Arrays.sort(arr);
     }
@@ -85,9 +85,13 @@ public class SortCheck {
         System.out.println();
     }
 
-    private static void concretrSort(int[] arr){
+    private static void concreteSort(int[] arr){
         if(type.equals("BubbleSort")){
             BubbleSort.sort(arr);
+        }else if(type.equals("SelectionSort")){
+            SelectionSort.sort(arr);
+        }else if(type.equals("InsertionSort")){
+            InsertionSort.sort(arr);
         }
     }
 
@@ -100,9 +104,13 @@ public class SortCheck {
         for (int i = 0; i < testTime; i++) {
             int[] arr1 = generateRandomArray(maxSize, maxValue);
             int[] arr2 = copyArray(arr1);
-            concretrSort(arr1);
+            int[] origin = copyArray(arr1);
+            concreteSort(arr1);
             comparator(arr2);
             if (!isEqual(arr1, arr2)) {
+                printArray(arr1);
+                printArray(arr2);
+                printArray(origin);
                 succeed = false;
                 break;
             }
@@ -111,7 +119,7 @@ public class SortCheck {
 
         int[] arr = generateRandomArray(maxSize, maxValue);
         printArray(arr);
-        concretrSort(arr);
+        concreteSort(arr);
         printArray(arr);
     }
 }
