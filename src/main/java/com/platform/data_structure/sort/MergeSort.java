@@ -3,6 +3,13 @@ package com.platform.data_structure.sort;
 /**
  * @Title: BubbleSort
  * @Description: 归并排序，时间复杂度O(N*LogN)，额外空间复杂度O(N)
+ * 算法说明：
+ * 1、将原数组分成两个相对（近似相等）的子数组，位置：0~mid，mid~n-1
+ * 2、对子数组进行排序
+ * 3、对排好序的两个子数组，使用外排序O(N)的方式合并
+ *
+ * 核心思想：利用有序的特性，把小的有序，合并成大的有序。是每一次比较均有效
+ *
  * @Auther:Lyon Chen
  * @Version: 1.0
  * @create 2020/8/25 14:51
