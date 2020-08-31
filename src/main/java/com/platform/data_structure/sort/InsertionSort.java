@@ -5,6 +5,8 @@ package com.platform.data_structure.sort;
  * @Description: 插入排序，时间复杂度O(N^2)，额外空间复杂度O(1)
  * 算法思想：
  * 1、形成一个小的有序数组，将后续数依次放入有序数组中正确的位置
+ * 2、时间复杂度最好为O(N),最差为O(N^2)，记为O(N^2);
+ * 3、但数据较少（工程上小于60）时，插入排序最快（插入排序的处理常量小）。
  *
  * @Auther:Lyon Chen
  * @Version: 1.0

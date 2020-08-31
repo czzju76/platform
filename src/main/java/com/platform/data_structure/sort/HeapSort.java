@@ -16,6 +16,8 @@ package com.platform.data_structure.sort;
  *  2.1、先将数组形成大根堆
  *  2.2、堆顶数据与堆结构（数组）尾部进行交换，之后执行heapify操作
  *  2.3、依次执行2.2流程，则完成排序
+ *  2.4、非稳定性
+ *
  * @Auther:Lyon Chen
  * @Version: 1.0
  * @create 2020/8/25 14:51

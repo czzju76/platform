@@ -1,0 +1,62 @@
+package com.platform.data_structure.sort;
+
+/**
+ * 荷兰国旗问题，对数组数据进行一次partition该过程，将小于目标值的数据放在数组左边，等于目标值的数据放在中间，
+ * 小于目标值的数据放在右边
+ */
+
+public class NetherlandsFlag {
+
+    public static int[] partition(int[] arr, int l, int r, int p) {
+        int less = l - 1;
+        int more = r + 1;
+        while (l < more) {
+            if (arr[l] < p) {
+                swap(arr, ++less, l++);
+            } else if (arr[l] > p) {
+                swap(arr, --more, l);
+            } else {
+                l++;
+            }
+        }
+        return new int[] { less + 1, more - 1 };
+    }
+
+    // for test
+    public static void swap(int[] arr, int i, int j) {
+        int tmp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = tmp;
+    }
+
+    // for test
+    public static int[] generateArray() {
+        int[] arr = new int[10];
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = (int) (Math.random() * 3);
+        }
+        return arr;
+    }
+
+    // for test
+    public static void printArray(int[] arr) {
+        if (arr == null) {
+            return;
+        }
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + " ");
+        }
+        System.out.println();
+    }
+
+    public static void main(String[] args) {
+        int[] test = generateArray();
+
+        printArray(test);
+        int[] res = partition(test, 0, test.length - 1, 1);
+        printArray(test);
+        System.out.println(res[0]);
+        System.out.println(res[1]);
+
+    }
+}

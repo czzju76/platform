@@ -3,6 +3,8 @@ package com.platform.data_structure.sort;
 /**
  * @Title: BubbleSort
  * @Description: 快速排序，时间复杂度O(N*LogN)，额外空间复杂度O(LogN)
+ * 算法说明：
+ *
  * @Auther:Lyon Chen
  * @Version: 1.0
  * @create 2020/8/25 14:51
